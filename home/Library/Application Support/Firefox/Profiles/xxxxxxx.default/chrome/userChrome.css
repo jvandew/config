@@ -1,0 +1,22 @@
+/* Hide default Firefox tab bar. */
+#main-window[tabsintitlebar="true"]:not([extradragspace="true"]) #TabsToolbar {
+  opacity: 0;
+  pointer-events: none;
+}
+
+#main-window:not([tabsintitlebar="true"]) #TabsToolbar {
+    visibility: collapse !important;
+}
+
+
+/* Hide Tree Style Tab header. */
+#sidebar-box[sidebarcommand="treestyletab_piro_sakura_ne_jp-sidebar-action"] #sidebar-header {
+  display: none;
+}
+
+
+/* Match title bar to dark theme. */
+#titlebar {
+  background-color: rgba(100, 100, 100, 0) !important;
+}
+
