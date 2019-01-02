@@ -12,6 +12,6 @@ sudo sh -c 'grep -q -F "$(which zsh)" /etc/shells || echo "$(which zsh)" >> /etc
 chsh -s $(which zsh)
 sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
 
-# copy over dotfiles
-cp -r "$root/home/"{.vim,.vimrc,.zshrc} ~
+# copy over config files
+cp -r "$root/home/"{.gitconfig,.vim,.vimrc,.zshrc} ~
 cp -r "$root/home/Library" ~
