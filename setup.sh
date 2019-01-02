@@ -1,10 +1,11 @@
 #! /bin/bash
+set +x
 
 root="$(cd "$(dirname "${BASH_SOURCE[0]}")" >/dev/null && pwd)"
 
 # homebrew and required packages
 /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
-brew install zsh fortune cowsay
+brew install zsh fortune cowsay gpg wget
 
 # zsh setup
 sudo echo "$(which zsh)" >> /etc/shells
