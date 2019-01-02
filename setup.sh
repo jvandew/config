@@ -15,3 +15,5 @@ sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/mas
 # copy over config files
 cp -r "$root/home/"{.gitconfig,.vim,.vimrc,.zshrc} ~
 cp -r "$root/home/Library" ~
+sudo cp -r "$root/root/"* /
+
