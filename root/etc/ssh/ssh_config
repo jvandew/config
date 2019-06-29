@@ -40,7 +40,7 @@ Host *
 #   Protocol 2,1
 #   Cipher 3des
     Ciphers aes256-ctr,aes192-ctr,aes128-ctr
-    MACs hmac-sha2-512,hmac-sha2-256,hmac-ripemd160
+    MACs hmac-sha2-512,hmac-sha2-256
 #   EscapeChar ~
 #   Tunnel no
 #   TunnelDevice any:any
