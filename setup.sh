@@ -1,17 +1,20 @@
 #! /bin/bash
-set +x
+set -xeo pipefail
 
 root="$(cd "$(dirname "${BASH_SOURCE[0]}")" >/dev/null && pwd)"
 
 # homebrew and required packages
-/usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
-brew cask install java
+if ! command -v brew &> /dev/null; then
+  /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+fi
+
 brew install \
   byobu \
   cowsay \
   fortune \
   gpg \
   imagemagick \
+  java \
   scala \
   wget \
   zsh
@@ -23,6 +26,10 @@ sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/mas
 
 # copy over config files
 cp -r "$root/home/"{.gitconfig,.vim,.vimrc,.zshrc} ~
-cp -r "$root/home/Library" ~
-sudo cp -r "$root/root/"* /
+
+# mac os specifics
+if [[ "$OSTYPE" == "darwin"* ]]; then
+  cp -r "$root/home/Library" ~
+  sudo cp -r "$root/root/"* /
+fi
 
