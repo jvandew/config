@@ -24,7 +24,7 @@ COMPLETION_WAITING_DOTS="true"
 
 # Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
-plugins=(git history-substring-search osx svn vi-mode lol macports autojump compleat )
+plugins=(history-substring-search svn vi-mode)
 
 source $ZSH/oh-my-zsh.sh
 
@@ -32,6 +32,11 @@ bindkey '^r' history-incremental-search-backward
 bindkey ' ' magic-space    # also do history expansion on space
 
 zstyle ':completion:*' hosts off
+
+function ssh_login {
+  eval "$(ssh-agent -s)"
+  ssh-add
+}
 
 fortune | cowsay
 
