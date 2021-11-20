@@ -9,6 +9,7 @@ if ! command -v brew &> /dev/null; then
 fi
 
 brew install \
+  autojump \
   byobu \
   cowsay \
   fortune \
