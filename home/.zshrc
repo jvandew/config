@@ -1,29 +1,20 @@
-# Path to your oh-my-zsh configuration.
-ZSH=$HOME/.oh-my-zsh
+# If you come from bash you might have to change your $PATH.
+# export PATH=$HOME/bin:/usr/local/bin:$PATH
 
-# Set name of the theme to load.
-# Look in ~/.oh-my-zsh/themes/
-# Optionally, if you set this to "random", it'll load a random theme each
-# time that oh-my-zsh is loaded.
-ZSH_THEME="arrow"
+# disable oh-my-zsh update prompts
+zstyle ':omz:update' mode disabled
 
-# Set to this to use case-sensitive completion
-# CASE_SENSITIVE="true"
+# Path to your oh-my-zsh installation.
+export ZSH="$HOME/.oh-my-zsh"
 
-# Comment this out to disable weekly auto-update checks
-# DISABLE_AUTO_UPDATE="true"
+# Set name of the theme to load --- if set to "random", it will
+# load a random theme each time oh-my-zsh is loaded, in which case,
+# to know which specific one was loaded, run: echo $RANDOM_THEME
+# See https://github.com/ohmyzsh/ohmyzsh/wiki/Themes
+ZSH_THEME="af-magic"
 
-# Uncomment following line if you want to disable colors in ls
-# DISABLE_LS_COLORS="true"
-
-# Uncomment following line if you want to disable autosetting terminal title.
-# DISABLE_AUTO_TITLE="true"
-
-# Uncomment following line if you want red dots to be displayed while waiting for completion
 COMPLETION_WAITING_DOTS="true"
 
-# Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
-# Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 plugins=(git history-substring-search macos vi-mode autojump compleat)
 
 source $ZSH/oh-my-zsh.sh
@@ -33,10 +24,27 @@ bindkey ' ' magic-space    # also do history expansion on space
 
 zstyle ':completion:*' hosts off
 
-function ssh_login {
-  eval "$(ssh-agent -s)"
-  ssh-add
+local git_grep=(git grep)
+local ide='Sublime Text'
+
+function opens () {
+  open -a "${ide}" $@
 }
 
-fortune | cowsay
+function grepo () {
+  "${git_grep[@]}" -l ${@:1} | xargs open -a "${ide}"
+}
 
+function unmerged () {
+  git diff --name-status --diff-filter=U | cut -d$'\t' -f 2
+}
+
+function addUnmerged () {
+  unmerged | xargs git add
+}
+
+function openUnmerged() {
+  unmerged | xargs open -a "${ide}"
+}
+
+echo 'the net is vast and infinite' | cowsay

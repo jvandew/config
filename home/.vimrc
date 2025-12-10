@@ -1,5 +1,3 @@
-" who the fuck is responsible for using quotes for comments?
-
 " syntax highlighting on
 syn on
 
@@ -21,12 +19,13 @@ set smarttab
 " tabs are spaces
 set expandtab
 
-" when writing Makefiles, use tabs instead of spaces
+" language-specific tab/indent overrides
+autocmd FileType go setlocal tabstop=4 shiftwidth=4 noexpandtab
 autocmd FileType make setlocal tabstop=4 shiftwidth=4 noexpandtab
+autocmd FileType python setlocal tabstop=4 shiftwidth=4
 
 " show line numbers
 set number
 
 " show line position
 set ruler
-

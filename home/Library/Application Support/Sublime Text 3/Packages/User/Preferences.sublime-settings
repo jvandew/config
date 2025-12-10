@@ -1,22 +1,14 @@
 {
-	"color_scheme": "Packages/SML (Standard ML)/Son of Obsidian.tmTheme",
 	"ensure_newline_at_eof_on_save": true,
 	"folder_exclude_patterns":
 	[
-		".cache",
 		".git",
-		".pids",
-		".local_artifact_cache",
-		".pants.d"
+		"bazel-*",
 	],
-	"folder_include_patterns":
-	[
-		".pants.d/gen"
-	],
-	"font_size": 16,
+	"font_size": 17,
 	"ignored_packages":
 	[
-		"Vintage"
+		"Vintage",
 	],
 	"rulers":
 	[
@@ -25,9 +17,12 @@
 	],
 	"scroll_past_end": true,
 	"show_full_path": true,
-	"show_minimap": false,
 	"tab_completion": false,
 	"tab_size": 2,
 	"translate_tabs_to_spaces": true,
-	"trim_trailing_white_space_on_save": true
+	"trim_trailing_white_space_on_save": true,
+	"index_files": true,
+	"wrap_width": 0,
+	"WrapPlus.wrap_width": 100,
+	"WrapPlus.include_line_endings": true,
 }
